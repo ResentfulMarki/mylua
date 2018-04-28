@@ -17,11 +17,3 @@ hook.Add( "OnPlayerChat", "SSG", function( ply, text, teamchat, isDead )
 end
 
 end)
-
-
-hook.Add( "OnPlayerChat", "runrun", function(ply, text)
-  if text == "/ethangay" then
-    ply:SetMaxSpeed( 50000 )
-    ply:SetRunSpeed( 50000 )
-  end
-end)
