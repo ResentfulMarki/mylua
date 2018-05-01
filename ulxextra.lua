@@ -78,7 +78,7 @@ launch:addParam{ type=ULib.cmds.PlayersArg }
 launch:defaultAccess( ULib.ACCESS_ADMIN )
 launch:help( "Launch players into the air." )
 
------------------------------- Launch ------------------------------
+------------------------------ SuperShotty ------------------------------
 
 function ulx.supershotty( calling_ply )
 	calling_ply:Give("weapon_supershotty")
