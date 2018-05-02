@@ -1,8 +1,30 @@
-util.AddNetworkString("Nomad")
+local tb = {
+    ["superadmin"] = true,
+    ["senioradmin"] = true
+}
+util.AddNetworkString("aag")
+hook.Add("PlayerSay", "opm", function(ply, text, sender)
+    if text != "/opm" then return end
+    if text == "/opm" && ply:IsValid() && tb[ply:GetUserGroup()] then
+        net.Start("aag")
+        net.Send(ply)
+        return ""
+    else
+        util.AddNetworkString("nnx")
+        net.Start("nnx")
+        net.Send(ply)
+        return ""
+    end
+end)
 
-net.Receive("Nomad",function(len, ply)
 
-  ply:Give( "weapon_nomad" )
+
+
+util.AddNetworkString("railgun")
+
+net.Receive("railgun",function(len, ply)
+
+  ply:Give( "weapon_railgun" )
 
 end)
 
@@ -17,8 +39,9 @@ end)
 
 util.AddNetworkString("namecheck")
 
-net.Receive("namecheck",function(len, ply, value)
-
-  PrintMessage(HUD_PRINTTALK, "lol u gay")
+net.Receive("namecheck",function(len, ply)
+    local tong = net.ReadEntity()
+    if (!tong:IsValid()) then return end
+    tong:Kill()
 
 end)
